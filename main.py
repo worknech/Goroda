@@ -20,7 +20,7 @@ def get_coordinates(city, key):
 def show_coordinates():
     city = entry.get()
     coordinates = get_coordinates(city, key)
-    label.config(text=f"Координаты города {city}: {coordinates}")
+    label.config(text=f"Координаты города {city}:\n {coordinates}")
 
 
 key = 'c3ecd8694f8240e5a339af13f133a19b'
@@ -28,7 +28,7 @@ key = 'c3ecd8694f8240e5a339af13f133a19b'
 
 root = Tk()
 root.title("Координаты городов")
-root.geometry("500x100")
+root.geometry("350x100")
 
 entry = Entry(root)
 entry.pack()
