@@ -1,0 +1,88 @@
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from opencage.geocoder import OpenCageGeocode\r\nfrom tkinter import *\r\n\r\n\r\ndef get_coordinates(city, key):\r\n    try:\r\n        geocoder = OpenCageGeocode(key)\r\n        results = geocoder.geocode(city, language='ru')\r\n\r\n        if results:\r\n            lat = round(results[0]['geometry']['lat'], 2)\r\n            lng = round(results[0]['geometry']['lng'], 2)\r\n            return f\"Широта: {lat}, Долгота: {lng}\"\r\n        else:\r\n            return \"Город не найден\"\r\n    except Exception as e:\r\n        return f\"Возникла ошибка {e}\"\r\n\r\n\r\ndef show_coordinates():\r\n    city = entry.get()\r\n    coordinates = get_coordinates(city, key)\r\n    label.config(text=f\"Координаты города {city}:\\n {coordinates}\")\r\n\r\n\r\nkey = 'c3ecd8694f8240e5a339af13f133a19b'\r\n\r\n\r\nroot = Tk()\r\nroot.title(\"Координаты городов\")\r\nroot.geometry(\"350x100\")\r\n\r\nentry = Entry(root)\r\nentry.pack()\r\n\r\nbutton = Button(text=\"Поиск координат\", command=show_coordinates)\r\nbutton.pack()\r\n\r\nlabel = Label(root, text=\"Введите город и нажмите на кнопку\")\r\nlabel.pack()\r\n\r\nroot.mainloop()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	
++++ b/main.py	
+@@ -17,7 +17,7 @@
+         return f"Возникла ошибка {e}"
+ 
+ 
+-def show_coordinates():
++def show_coordinates(event=None):
+     city = entry.get()
+     coordinates = get_coordinates(city, key)
+     label.config(text=f"Координаты города {city}:\n {coordinates}")
+@@ -32,6 +32,7 @@
+ 
+ entry = Entry(root)
+ entry.pack()
++entry.bind("<Return>", show_coordinates)
+ 
+ button = Button(text="Поиск координат", command=show_coordinates)
+ button.pack()
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ae3060c5-5ad1-4ae7-b986-4c48b66845b7\" name=\"Changes\" comment=\"Добавлен интерфейс: поле ввода, кнопка и метка\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"associatedIndex\": 2\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"30lfSYluiKwOuRTuHAPUlLbrDY5\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Python.main.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17011.127\" />\r\n        <option value=\"bundled-python-sdk-48aec45f0201-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17011.127\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ae3060c5-5ad1-4ae7-b986-4c48b66845b7\" name=\"Changes\" comment=\"\" />\r\n      <created>1754207083015</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1754207083015</updated>\r\n      <workItem from=\"1754207092129\" duration=\"4484000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Первая версия. Запрос координат города\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1754209597135</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1754209597135</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Добавлена обработка исключений\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1754210109221</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1754210109221</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Возвращаем результвт на русском\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1754210248630</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1754210248630</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Добавлено округление координат\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1754210547352</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1754210547352</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Добавлены слова Широта и Долгота при выводе\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1754210877790</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1754210877790</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Добавлен интерфейс: поле ввода, кнопка и метка\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1754212249148</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1754212249148</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Первая версия. Запрос координат города\" />\r\n    <MESSAGE value=\"Добавлена обработка исключений\" />\r\n    <MESSAGE value=\"Возвращаем результвт на русском\" />\r\n    <MESSAGE value=\"Добавлено округление координат\" />\r\n    <MESSAGE value=\"Добавлены слова Широта и Долгота при выводе\" />\r\n    <MESSAGE value=\"Добавлен интерфейс: поле ввода, кнопка и метка\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Добавлен интерфейс: поле ввода, кнопка и метка\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/Goroda$main.coverage\" NAME=\"main Coverage Results\" MODIFIED=\"1754212151281\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,7 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="ae3060c5-5ad1-4ae7-b986-4c48b66845b7" name="Changes" comment="Добавлен интерфейс: поле ввода, кнопка и метка" />
++    <list default="true" id="ae3060c5-5ad1-4ae7-b986-4c48b66845b7" name="Changes" comment="Изменена геометрия окна">
++      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -62,7 +64,7 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1754207083015</updated>
+-      <workItem from="1754207092129" duration="4484000" />
++      <workItem from="1754207092129" duration="4805000" />
+     </task>
+     <task id="LOCAL-00001" summary="Первая версия. Запрос координат города">
+       <option name="closed" value="true" />
+@@ -112,7 +114,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1754212249148</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL-00007" summary="Изменена геометрия окна">
++      <option name="closed" value="true" />
++      <created>1754212656790</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1754212656790</updated>
++    </task>
++    <option name="localTasksCounter" value="8" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -136,9 +146,10 @@
+     <MESSAGE value="Добавлено округление координат" />
+     <MESSAGE value="Добавлены слова Широта и Долгота при выводе" />
+     <MESSAGE value="Добавлен интерфейс: поле ввода, кнопка и метка" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен интерфейс: поле ввода, кнопка и метка" />
++    <MESSAGE value="Изменена геометрия окна" />
++    <option name="LAST_COMMIT_MESSAGE" value="Изменена геометрия окна" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/Goroda$main.coverage" NAME="main Coverage Results" MODIFIED="1754212151281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
++    <SUITE FILE_PATH="coverage/Goroda$main.coverage" NAME="main Coverage Results" MODIFIED="1754212820372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+   </component>
+ </project>
+\ No newline at end of file

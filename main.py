@@ -12,7 +12,7 @@ def get_coordinates(city, key):
             lng = round(results[0]['geometry']['lng'], 2)
             country = results[0]['components']['country']
             region = results[0]['components']['state']
-            return f"Широта: {lat}, Долгота: {lng}, Страна: {country}, Регион: {region}"
+            return f"Широта: {lat}, Долгота: {lng},\n Страна: {country}, Регион: {region}"
         else:
             return "Город не найден"
     except Exception as e:

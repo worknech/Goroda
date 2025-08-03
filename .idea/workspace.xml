@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae3060c5-5ad1-4ae7-b986-4c48b66845b7" name="Changes" comment="Добавлен интерфейс: поле ввода, кнопка и метка">
+    <list default="true" id="ae3060c5-5ad1-4ae7-b986-4c48b66845b7" name="Changes" comment="Добавлен вывод информации о стране и регионе">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -23,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feature/ui" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -115,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754212249148</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Добавлен вывод информации о стране и регионе">
+      <option name="closed" value="true" />
+      <created>1754214403713</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1754214403713</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,9 +147,10 @@
     <MESSAGE value="Добавлено округление координат" />
     <MESSAGE value="Добавлены слова Широта и Долгота при выводе" />
     <MESSAGE value="Добавлен интерфейс: поле ввода, кнопка и метка" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен интерфейс: поле ввода, кнопка и метка" />
+    <MESSAGE value="Добавлен вывод информации о стране и регионе" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен вывод информации о стране и регионе" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Goroda$main.coverage" NAME="main Coverage Results" MODIFIED="1754214090429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Goroda$main.coverage" NAME="main Coverage Results" MODIFIED="1754214578342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
